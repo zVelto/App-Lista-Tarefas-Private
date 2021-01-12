@@ -40,6 +40,17 @@
 		}
 
 
+	} else if($acao == 'remover') {
+
+		$tarefa = new Tarefa();
+		$tarefa->__set('id', $_GET['id']);
+
+		$conexao = new Conexao();
+
+		$tarefaService = new TarefaService($conexao, $tarefa);
+		$tarefaService->remover();
+
+		header('location: todas_tarefas.php');
 	}
 
 ?>
